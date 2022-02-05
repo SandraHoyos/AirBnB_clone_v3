@@ -19,7 +19,8 @@ def states(state_id=None):
         a: 404 error if the state_id is not linked to any State object
 
     Returns:
-        [json string]: The list of all State objects if state_id is None, if not
+        [json string]: The list of all State objects if state_id is None,
+        if not
     retrieves a State object
     """
     if state_id is None:
