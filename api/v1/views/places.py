@@ -26,7 +26,7 @@ def get_list_places(city_id):
     if obj_city is None:
         abort(404)
     places = obj_city.places
-    list_places = [places.to_dict() for places in places]
+    list_places = [place.to_dict() for place in places]
     return jsonify(list_places), 200
 
 
@@ -38,7 +38,7 @@ def get_place(place_id):
         place_id: Id of the object to be gotten
 
     Raises:
-        a: 404 error if the place_id is not linked to any City object
+        a: 404 error if the place_id is not linked to any Place object
 
     Returns:
         [json string]: a Place object
