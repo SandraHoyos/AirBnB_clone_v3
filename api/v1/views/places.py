@@ -8,7 +8,6 @@ from models.place import Place
 from models.user import User
 
 
-
 @app_views.route('/cities/<city_id>/places', strict_slashes=False,
                  methods=['GET'])
 def get_list_places(city_id):
@@ -30,6 +29,7 @@ def get_list_places(city_id):
     list_places = [places.to_dict() for places in places]
     return jsonify(list_places), 200
 
+
 @app_views.route('/places/<place_id>', strict_slashes=False, methods=['GET'])
 def get_place(place_id):
     """Retrieves a Place object
@@ -49,7 +49,8 @@ def get_place(place_id):
     return jsonify(obj_place.to_dict()), 200
 
 
-@app_views.route('/places/<place_id>', strict_slashes=False, methods=['DELETE'])
+@app_views.route('/places/<place_id>', strict_slashes=False,
+                 methods=['DELETE'])
 def delete_place(place_id):
     """Deletes a place object
 
@@ -81,8 +82,10 @@ def create_place(city_id):
         - The user_id is not linked to any User object
     a: 400 error if:
         - The HTTP body request is not valid JSON. Message "Not a JSON"
-        - The dictionary doesn’t contain the key "user_id". Message "Missing user_id"
-        - The dictionary doesn’t contain the key "name". Message "Missing name"
+        - The dictionary doesn’t contain the key "user_id".
+            Message "Missing user_id"
+        - The dictionary doesn’t contain the key "name".
+            Message "Missing name"
 
     Returns:
         [json string]: The new Place with the status code 201
