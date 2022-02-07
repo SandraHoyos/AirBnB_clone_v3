@@ -56,7 +56,7 @@ def delete_city(city_id):
         city_id: id of the object to be deleted
 
     Raises:
-        a: 404 error if the city is not linked to any city object
+        a: 404 error if the city_id is not linked to any city object
 
     Returns:
         [Json string] an empty dictionary with the status code 200
